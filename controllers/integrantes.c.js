@@ -29,6 +29,20 @@ class IntegrantesController {
         }
       });
     }
+
+      // Ingresar una integrantes
+  Ingresar(res, integrantes) {
+    const sql = 'INSERT INTO integrantes SET ?';
+
+    db.query(sql, integrantes, (err, result) => {
+      if (err) {
+        console.log('Error al ingresar integrantes:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new IntegrantesController();

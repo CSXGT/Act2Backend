@@ -29,6 +29,20 @@ class CategoriaController {
       }
     });
   }
+
+    // Ingresar una categoria
+    Ingresar(res, categoria) {
+      const sql = 'INSERT INTO categoria SET ?';
+  
+      db.query(sql, categoria, (err, result) => {
+        if (err) {
+          console.log('Error al ingresar categoria:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new CategoriaController();

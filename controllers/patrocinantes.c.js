@@ -29,6 +29,20 @@ class PatrocinantesController {
         }
       });
     }
+
+      // Ingresar una patrocinantes
+  Ingresar(res, patrocinantes) {
+    const sql = 'INSERT INTO patrocinantes SET ?';
+
+    db.query(sql, patrocinantes, (err, result) => {
+      if (err) {
+        console.log('Error al ingresar patrocinantes:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new PatrocinantesController();

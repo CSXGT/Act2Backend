@@ -29,6 +29,20 @@ class ModalidadController {
       }
     });
   }
+
+    // Ingresar una modalidad
+    Ingresar(res, modalidad) {
+      const sql = 'INSERT INTO modalidad SET ?';
+  
+      db.query(sql, modalidad, (err, result) => {
+        if (err) {
+          console.log('Error al ingresar modalidad:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new ModalidadController();

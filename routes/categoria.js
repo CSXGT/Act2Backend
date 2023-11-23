@@ -12,4 +12,9 @@ router.get("/:id", function(req, res, next) {
   CategoriaController.Buscar(res, req.params.id);
 });
 
+// Ingresar un categoria
+router.post('/', function(req, res, next) {
+  CategoriaController.Ingresar(res, req.body);
+});
+
 module.exports = router;

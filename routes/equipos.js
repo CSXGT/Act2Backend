@@ -12,4 +12,9 @@ router.get("/:id", function(req, res, next) {
   EquiposController.Buscar(res, req.params.id);
 });
 
+// Ingresar un Equipo
+router.post('/', function(req, res, next) {
+  EquiposController.Ingresar(res, req.body);
+});
+
 module.exports = router;

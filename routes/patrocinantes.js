@@ -12,4 +12,9 @@ router.get("/:id", function(req, res, next) {
   PatrocinantesController.Buscar(res, req.params.id);
 });
 
+// Ingresar un patrocinantes
+router.post('/', function(req, res, next) {
+  PatrocinantesController.Ingresar(res, req.body);
+});
+
 module.exports = router;

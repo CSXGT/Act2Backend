@@ -12,4 +12,9 @@ router.get("/:id", function(req, res, next) {
   IntegrantesController.Buscar(res, req.params.id);
 });
 
+// Ingresar un integrantes
+router.post('/', function(req, res, next) {
+  IntegrantesController.Ingresar(res, req.body);
+});
+
 module.exports = router;

@@ -12,5 +12,10 @@ router.get("/:id", function(req, res, next) {
   ModalidadController.Buscar(res, req.params.id);
 });
 
+// Ingresar un modalidad
+router.post('/', function(req, res, next) {
+  ModalidadController.Ingresar(res, req.body);
+});
+
 
 module.exports = router;

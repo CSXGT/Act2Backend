@@ -29,6 +29,20 @@ class EquiposController {
         }
       });
     }
+
+      // Ingresar un Equipo
+  Ingresar(res, equipo) {
+    const sql = 'INSERT INTO equipos SET ?';
+
+    db.query(sql, equipo, (err, result) => {
+      if (err) {
+        console.log('Error al ingresar equipo:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new EquiposController();
