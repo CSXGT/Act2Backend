@@ -22,4 +22,9 @@ router.put("/:id", function(req, res, next) {
   CategoriaController.Modificar(res, req.params.id, req.body);
 });
 
+// Eliminar un categoria
+router.delete("/:id", function(req, res, next) {
+  CategoriaController.Eliminar(res, req.params.id);
+});
+
 module.exports = router;

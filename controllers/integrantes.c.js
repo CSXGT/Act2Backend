@@ -58,6 +58,21 @@ class IntegrantesController {
         }
       });
     }
+
+      // Eliminar un integrantes
+  Eliminar(res, integrantes) {
+    const id = +integrantes;
+    const sql = 'DELETE FROM integrantes WHERE ID_INTEGRANTES = ?';
+
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.log('Error al eliminar integrantes:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new IntegrantesController();

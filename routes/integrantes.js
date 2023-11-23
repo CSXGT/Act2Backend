@@ -22,5 +22,9 @@ router.put("/:id", function(req, res, next) {
   IntegrantesController.Modificar(res, req.params.id, req.body);
 });
 
+// Eliminar un integrantes
+router.delete("/:id", function(req, res, next) {
+  IntegrantesController.Eliminar(res, req.params.id);
+});
 
 module.exports = router;

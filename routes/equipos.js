@@ -22,4 +22,9 @@ router.put("/:id", function(req, res, next) {
   EquiposController.Modificar(res, req.params.id, req.body);
 });
 
+// Eliminar un Equipo
+router.delete("/:id", function(req, res, next) {
+  EquiposController.Eliminar(res, req.params.id);
+});
+
 module.exports = router;

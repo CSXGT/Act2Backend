@@ -22,4 +22,9 @@ router.put("/:id", function(req, res, next) {
   PatrocinantesController.Modificar(res, req.params.id, req.body);
 });
 
+// Eliminar un patrocinantes
+router.delete("/:id", function(req, res, next) {
+  PatrocinantesController.Eliminar(res, req.params.id);
+});
+
 module.exports = router;

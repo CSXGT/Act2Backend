@@ -22,4 +22,10 @@ router.put("/:id", function(req, res, next) {
   ModalidadController.Modificar(res, req.params.id, req.body);
 });
 
+// Eliminar un modalidad
+router.delete("/:id", function(req, res, next) {
+  ModalidadController.Eliminar(res, req.params.id);
+});
+
+
 module.exports = router;

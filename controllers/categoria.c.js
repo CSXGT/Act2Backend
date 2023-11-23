@@ -58,6 +58,21 @@ class CategoriaController {
       }
     });
   }
+
+    // Eliminar un categoria
+    Eliminar(res, categoria) {
+      const id = +categoria;
+      const sql = 'DELETE FROM categoria WHERE ID_CATEGORIA = ?';
+  
+      db.query(sql, [id], (err, result) => {
+        if (err) {
+          console.log('Error al eliminar categoria:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new CategoriaController();

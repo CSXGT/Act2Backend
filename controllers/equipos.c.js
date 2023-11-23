@@ -58,6 +58,21 @@ class EquiposController {
         }
       });
     }
+
+      // Eliminar un Equipo
+  Eliminar(res, equipo) {
+    const id = +equipo;
+    const sql = 'DELETE FROM equipos WHERE ID_EQUIPO = ?';
+
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.log('Error al eliminar equipo:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new EquiposController();

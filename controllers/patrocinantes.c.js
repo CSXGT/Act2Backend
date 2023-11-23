@@ -58,7 +58,21 @@ class PatrocinantesController {
         }
       });
     }
-  
+
+    // Eliminar un patrocinantes
+  Eliminar(res, patrocinantes) {
+    const id = +patrocinantes;
+    const sql = 'DELETE FROM patrocinantes WHERE ID_PATROCINANTE = ?';
+
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.log('Error al eliminar patrocinantes:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new PatrocinantesController();

@@ -58,6 +58,21 @@ class ModalidadController {
       }
     });
   }
+
+    // Eliminar un modalidad
+    Eliminar(res, modalidad) {
+      const id = +modalidad;
+      const sql = 'DELETE FROM modalidad WHERE ID_MODALIDAD = ?';
+  
+      db.query(sql, [id], (err, result) => {
+        if (err) {
+          console.log('Error al eliminar modalidad:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new ModalidadController();
