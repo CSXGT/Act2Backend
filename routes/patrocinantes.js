@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
   PatrocinantesController.Mostrar(res);
 });
 
+// Buscar un patrocinantes según id
+router.get("/:id", function(req, res, next) {
+  PatrocinantesController.Buscar(res, req.params.id);
+});
+
 module.exports = router;

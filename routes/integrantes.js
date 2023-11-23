@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
   IntegrantesController.Mostrar(res);
 });
 
+// Buscar un integrantes según id
+router.get("/:id", function(req, res, next) {
+  IntegrantesController.Buscar(res, req.params.id);
+});
+
 module.exports = router;

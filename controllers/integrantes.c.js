@@ -14,6 +14,21 @@ class IntegrantesController {
       }
     });
   }
+
+    // Buscar un integrantes según id
+    Buscar(res, integrantes) {
+      const id = +integrantes;
+      const sql = 'SELECT * FROM integrantes WHERE ID_INTEGRANTES = ?';
+  
+      db.query(sql, [id], (err, result) => {
+        if (err) {
+          console.log('Error al buscar integrantes por ID:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.json(result);
+        }
+      });
+    }
 }
 
 const controller = new IntegrantesController();
