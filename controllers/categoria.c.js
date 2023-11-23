@@ -43,6 +43,21 @@ class CategoriaController {
         }
       });
     }
+
+      // Modificar un categoria
+  Modificar(res, categoria, newcategoria) {
+    const id = +categoria;
+    const sql = 'UPDATE categoria SET ? WHERE ID_CATEGORIA = ?';
+
+    db.query(sql, [newcategoria, id], (err, result) => {
+      if (err) {
+        console.log('Error al modificar categoria:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new CategoriaController();

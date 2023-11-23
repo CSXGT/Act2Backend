@@ -43,6 +43,22 @@ class PatrocinantesController {
       }
     });
   }
+
+    // Modificar un patrocinantes
+    Modificar(res, patrocinantes, newpatrocinantes) {
+      const id = +patrocinantes;
+      const sql = 'UPDATE patrocinantes SET ? WHERE ID_PATROCINANTE = ?';
+  
+      db.query(sql, [newpatrocinantes, id], (err, result) => {
+        if (err) {
+          console.log('Error al modificar patrocinantes:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
+  
 }
 
 const controller = new PatrocinantesController();

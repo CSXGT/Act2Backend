@@ -17,4 +17,10 @@ router.post('/', function(req, res, next) {
   IntegrantesController.Ingresar(res, req.body);
 });
 
+// Modificar un integrantes
+router.put("/:id", function(req, res, next) {
+  IntegrantesController.Modificar(res, req.params.id, req.body);
+});
+
+
 module.exports = router;

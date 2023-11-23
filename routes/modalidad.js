@@ -17,5 +17,9 @@ router.post('/', function(req, res, next) {
   ModalidadController.Ingresar(res, req.body);
 });
 
+// Modificar un modalidad
+router.put("/:id", function(req, res, next) {
+  ModalidadController.Modificar(res, req.params.id, req.body);
+});
 
 module.exports = router;

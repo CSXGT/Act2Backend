@@ -43,6 +43,21 @@ class IntegrantesController {
       }
     });
   }
+
+    // Modificar un integrantes
+    Modificar(res, integrantes, newintegrantes) {
+      const id = +integrantes;
+      const sql = 'UPDATE integrantes SET ? WHERE ID_INTEGRANTES = ?';
+  
+      db.query(sql, [newintegrantes, id], (err, result) => {
+        if (err) {
+          console.log('Error al modificar integrantes:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new IntegrantesController();

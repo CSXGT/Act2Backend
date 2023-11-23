@@ -17,4 +17,9 @@ router.post('/', function(req, res, next) {
   CategoriaController.Ingresar(res, req.body);
 });
 
+// Modificar un categoria
+router.put("/:id", function(req, res, next) {
+  CategoriaController.Modificar(res, req.params.id, req.body);
+});
+
 module.exports = router;

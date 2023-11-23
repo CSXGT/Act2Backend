@@ -17,4 +17,9 @@ router.post('/', function(req, res, next) {
   PatrocinantesController.Ingresar(res, req.body);
 });
 
+// Modificar un patrocinantes
+router.put("/:id", function(req, res, next) {
+  PatrocinantesController.Modificar(res, req.params.id, req.body);
+});
+
 module.exports = router;

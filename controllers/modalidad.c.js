@@ -43,6 +43,21 @@ class ModalidadController {
         }
       });
     }
+
+      // Modificar un modalidad
+  Modificar(res, modalidad, newmodalidad) {
+    const id = +modalidad;
+    const sql = 'UPDATE modalidad SET ? WHERE ID_MODALIDAD = ?';
+
+    db.query(sql, [newmodalidad, id], (err, result) => {
+      if (err) {
+        console.log('Error al modificar modalidad:', err);
+        res.status(500).send('Error interno del servidor');
+      } else {
+        res.send(result);
+      }
+    });
+  }
 }
 
 const controller = new ModalidadController();

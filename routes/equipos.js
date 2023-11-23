@@ -17,4 +17,9 @@ router.post('/', function(req, res, next) {
   EquiposController.Ingresar(res, req.body);
 });
 
+// Modificar un Equipo
+router.put("/:id", function(req, res, next) {
+  EquiposController.Modificar(res, req.params.id, req.body);
+});
+
 module.exports = router;

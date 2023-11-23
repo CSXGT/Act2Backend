@@ -43,6 +43,21 @@ class EquiposController {
       }
     });
   }
+
+    // Modificar un Equipo
+    Modificar(res, equipo, newEquipo) {
+      const id = +equipo;
+      const sql = 'UPDATE equipos SET ? WHERE ID_EQUIPO = ?';
+  
+      db.query(sql, [newEquipo, id], (err, result) => {
+        if (err) {
+          console.log('Error al modificar equipo:', err);
+          res.status(500).send('Error interno del servidor');
+        } else {
+          res.send(result);
+        }
+      });
+    }
 }
 
 const controller = new EquiposController();
