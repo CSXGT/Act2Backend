@@ -30,7 +30,7 @@ class IntegrantesController {
       });
     }
 
-      // Ingresar una integrantes
+  // Ingresar una integrantes
   Ingresar(res, integrantes) {
     const sql = 'INSERT INTO integrantes SET ?';
 

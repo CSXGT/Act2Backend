@@ -44,7 +44,7 @@ class CategoriaController {
       });
     }
 
-      // Modificar un categoria
+  // Modificar un categoria
   Modificar(res, categoria, newcategoria) {
     const id = +categoria;
     const sql = 'UPDATE categoria SET ? WHERE ID_CATEGORIA = ?';
